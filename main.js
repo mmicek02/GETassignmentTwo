@@ -14,12 +14,13 @@ function displayResults(responseJson) {
   //replace the existing image with the new one
   /*$('.results-img').replaceWith(
     `<img src="${responseJson[i]}" class="results-img">`*/
-    var listItem = document.createElement('li');
-    listItem.textContent = responseJson[i];
-    $('results-img').appendChild(listItem);
+    var imageItem = document.createElement('img');
+    imageItem.src = responseJson[i]; //Should add the Json image from the array pulled 
+    imageItem.addClass('results-img')
+    $('results-img').appendChild(imageItem);
 }
   //display the results section
-  console.log('Ready to reveal images!');
+  console.log('Who let the dogs out?!');
   $('.results').removeClass('hidden');
 }
 
