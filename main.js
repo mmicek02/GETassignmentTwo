@@ -10,13 +10,17 @@ function getDogImage() {
 
 function displayResults(responseJson) {
   console.log(responseJson);
+  for (let i = 0; i < responseJson.length; i++){
   //replace the existing image with the new one
-  $('.results-img').replaceWith(
-    `<img src="${responseJson.message}" class="results-img">`
-  )
+  /*$('.results-img').replaceWith(
+    `<img src="${responseJson[i]}" class="results-img">`*/
+    var listItem = document.createElement('li');
+    listItem.textContent = responseJson[i];
+    $('results-img').appendChild(listItem);
+}
   //display the results section
-  $('.results').removeClass('hidden');
   console.log('Ready to reveal images!');
+  $('.results').removeClass('hidden');
 }
 
 function watchForm() {
