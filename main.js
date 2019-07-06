@@ -9,16 +9,15 @@ function getDogImage() {
 }
 
 function displayResults(responseJson) {
+
   console.log(responseJson);
-  for (let i = 0; i < responseJson.length; i++){
+  for (let i = 0; i < responseJson["message"].length; i++){
   //replace the existing image with the new one
-  /*$('.results-img').replaceWith(
-    `<img src="${responseJson[i]}" class="results-img">`*/
     var imageItem = document.createElement('img');
-    imageItem.src = responseJson[i]; //Should add the Json image from the array pulled 
-    imageItem.addClass('results-img')
-    $('results-img').appendChild(imageItem);
-}
+    imageItem.setAttribute("src", responseJson["message"][i]);
+    console.log(imageItem)
+    $('.results-img').append(imageItem);
+  }
   //display the results section
   console.log('Who let the dogs out?!');
   $('.results').removeClass('hidden');
